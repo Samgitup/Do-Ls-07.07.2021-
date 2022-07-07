@@ -2,32 +2,32 @@
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <ul class="navbar-nav">
            
-            <li class="nav-item" (click)="goToLaptops(brandId)"  style="color: white;" class="nav-link">Back  
+            <li class="nav-item" (click)="goToLaptops(brandId)"  style="color: white;cursor: pointer" class="nav-link">Back  
 
             </li>
 
         </ul>
     </nav>
     <h3> Update Laptop </h3>
-    <form (ngSubmit)="onSubmit()">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
             <label> LaptopName</label>
-            <input type="text" class="form-control" id="laptopName" [(ngModel)]="laptopName" name="laptopName">
+            <input  required placeholder="Enter LaptopName" type="text" class="form-control" id="laptopName" [(ngModel)]="laptopName" name="laptopName">
         </div>
 
         <div class="form-group">
             <label> Price</label>
-            <input type="text" class="form-control" id="price" [(ngModel)]="laptopPrice" name="price">
+            <input  required placeholder="Enter Price" type="text" class="form-control" id="price" [(ngModel)]="laptopPrice" name="price">
         </div>
 
         <div class="form-group">
             <label> Version</label>
-            <input type="text" class="form-control" id="version" [(ngModel)]="laptopVersion" name="version">
+            <input  required placeholder="Enter Version" type="text" class="form-control" id="version" [(ngModel)]="laptopVersion" name="version">
         </div>
 
 
 
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button [disabled]="f.invalid" class="btn btn-success" type="submit">Submit</button>
     </form>
 </div>

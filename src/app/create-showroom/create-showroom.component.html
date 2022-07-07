@@ -1,34 +1,38 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <ul class = "navbar-nav">
       
-        <li class = "nav-item" (click)="goToShowroomList()" class="nav-link" > Showroom List
+        <li class = "nav-item" (click)="goToShowroomList()" style="cursor: pointer" class="nav-link" > Showroom List
           
         </li>
     </ul>
   </nav>
 <div class="col-md-6 offset-md-3">
     <h3> Create Showroom </h3>
-    <form (ngSubmit) = "onSubmit()">
+    <div [hidden]="!submitted" class="serach"> 
+    <form #f="ngForm" (ngSubmit) = "onSubmit()">
     
         <div class="form-group">
             <label> ShowroomName</label>
-            <input type="text" class ="form-control" id = "laptopShowroomName"
+            <input  required placeholder="Enter ShowroomName" type="text" class ="form-control" id = "laptopShowroomName"
             [(ngModel)] = "showroom.laptopShowroomName"    name = "laptopShowroomName">
         </div>
     
         <div class="form-group">
             <label> Location</label>
-            <input type="text" class ="form-control" id = "location"
+            <input  required placeholder="Enter Location" type="text" class ="form-control" id = "location"
             [(ngModel)] = "showroom.location"   name = "location">
         </div>
     
         <div class="form-group">
             <label> PhoneNumber</label>
-            <input type="text" class ="form-control" id = "phoneNumber"
+            <input required placeholder="Enter PhoneNumber" type="text" class ="form-control" id = "phoneNumber"
             [(ngModel)] = "showroom.phoneNumber"   name = "phoneNumber">
         </div>
-    
-        <button class = "btn btn-success" type ="submit">Submit</button>
+    <br>
+        <button  [disabled]="f.invalid" class = "btn btn-success" type ="submit">Submit</button>
     
     </form>
+    </div>
+
+
     </div> 

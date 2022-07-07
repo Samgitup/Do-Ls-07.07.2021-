@@ -16,6 +16,7 @@ export class UpdateBrandComponent implements OnInit {
   showroomId!: number;
   brandName!: String;
   value!: Brand;
+  submitted:boolean=true;
   constructor( private brandService : BrandService,
     private route: ActivatedRoute,
     private router : Router) { }
@@ -24,6 +25,9 @@ export class UpdateBrandComponent implements OnInit {
     this.brandId = this.route.snapshot.params['brandId'];
     this.brandService.getBrandById(this.brandId).subscribe(data => {
       this.brand = data;
+
+    this.brandName=data.brandName;
+
     }, error => console.log(error));
   }
   async onSubmit(){
